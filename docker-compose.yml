@@ -1,0 +1,13 @@
+version: "3.2"
+services:
+
+  proxy:
+    image: nginx:alpine
+    container_name: nginx-pagespeed-proxy
+    working_dir: /application
+    volumes:
+      - .:/application
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "8090:8090"
+
